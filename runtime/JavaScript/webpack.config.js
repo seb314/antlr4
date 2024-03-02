@@ -1,5 +1,6 @@
 import path from 'path';
 import ESLintPlugin from 'eslint-webpack-plugin';
+import CopyPlugin from  "copy-webpack-plugin";
 import {fileURLToPath} from "url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -51,7 +52,23 @@ const buildConfig = ( platform, extensions ) => ({
         },
     }),
     target: platform,
-    plugins: [ new ESLintPlugin() ],
+    plugins: [ 
+        new ESLintPlugin(),
+        new CopyPlugin({
+            patterns:  ['.d.ts', '.d.mts', '.d.cts'].map(targetExtension => (
+                {
+                    context: 'src/antlr4/',
+                    from: '**/*.d.ts',
+                    to({ context, absoluteFilename }) {
+                      const relativePath = path.relative(context, absoluteFilename);
+                      const dir = path.dirname(relativePath);
+                      const filenameWithoutExtension = path.basename(relativePath, '.d.ts');
+                      return `${dir}/${filenameWithoutExtension}${targetExtension}`;
+                    },
+                })
+            )
+        })
+    ],
     devtool: "source-map",
     experiments: {
         outputModule: extensions === "mjs"
