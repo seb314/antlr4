@@ -3,6 +3,7 @@ import {CharStream} from "./CharStream.js";
 export declare class Token {
 
     static EOF: number;
+    static MIN_USER_TOKEN_TYPE: number;
 
     tokenIndex: number;
     line: number;
