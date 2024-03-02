@@ -10,6 +10,7 @@ import { default as tree } from './tree/index.js';
 import { default as error } from './error/index.js';
 import { default as CharStreams } from './CharStreams.js';
 import { default as Utils } from './utils/index.js';
+import { default as transition } from './transition/index.js'
 
 import Token from './Token.js';
 import CommonToken from './CommonToken.js';
@@ -29,6 +30,10 @@ import ATNDeserializer from './atn/ATNDeserializer.js';
 import LexerATNSimulator from './atn/LexerATNSimulator.js';
 import ParserATNSimulator from './atn/ParserATNSimulator.js';
 import PredictionContextCache from './atn/PredictionContextCache.js';
+import Transition from './transition/Transition.js';
+import RuleTransition from './transition/RuleTransition.js';
+import NotSetTransition from './transition/NotSetTransition.js';
+import WildcardTransition from './transition/WildcardTransition.js';
 import DFA from "./dfa/DFA.js";
 import RecognitionException from "./error/RecognitionException.js";
 import FailedPredicateException from "./error/FailedPredicateException.js";
@@ -47,7 +52,7 @@ import arrayToString from "./utils/arrayToString.js"
 import TokenStreamRewriter from './TokenStreamRewriter.js';
 
 export default {
-    atn, dfa, context, misc, tree, error, Token, CommonToken, CharStreams, CharStream, InputStream, FileStream, CommonTokenStream, Lexer, Parser,
+    atn, dfa, context, misc, tree, error, transition, Token, CommonToken, CharStreams, CharStream, InputStream, FileStream, CommonTokenStream, Lexer, Parser,
     ParserRuleContext, Interval, IntervalSet, LL1Analyzer, Utils, TokenStreamRewriter
 }
 
@@ -56,5 +61,5 @@ export {
     RuleNode, TerminalNode, ParseTreeWalker, RuleContext, ParserRuleContext, Interval, IntervalSet,
     PredictionMode, LL1Analyzer, ParseTreeListener, ParseTreeVisitor, ATN, ATNDeserializer, PredictionContextCache, LexerATNSimulator, ParserATNSimulator, DFA,
     RecognitionException, NoViableAltException, FailedPredicateException, ErrorListener, DiagnosticErrorListener, BailErrorStrategy,
-    arrayToString
+    arrayToString, Transition, RuleTransition, NotSetTransition, WildcardTransition
 }

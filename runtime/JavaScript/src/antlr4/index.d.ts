@@ -11,6 +11,7 @@ export * from "./Lexer.js";
 export * from "./Parser.js";
 export * from './Token.js';
 export * from "./atn/index.js";
+export * from "./transition/index.js"
 export * from "./dfa/index.js";
 export * from "./context/index.js";
 export * from './misc/index.js';
