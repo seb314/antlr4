@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "target": "ES6",
-    "module": "ES2020",
-    "moduleResolution": "Node",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "sourceMap": true,
     "esModuleInterop":true,
     "lib": [
@@ -16,7 +16,7 @@
     ],
     "types": [
       "node"
-    ],
+    ]
   },
   "include": [
     "**/*.d.ts"
