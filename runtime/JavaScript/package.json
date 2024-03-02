@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/antlr/antlr4",
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.0",
     "@babel/core": "^7.19.1",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/preset-env": "^7.19.4",
