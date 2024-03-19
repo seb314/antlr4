@@ -1,0 +1,18 @@
+# hypothetical complete class A)
+# input: "public class Foo { public static    boolean myAttribute = 42; }"
+# hypothetical complete class B)
+# input: "public class Foo { public static    class Inner {} }"
+# actual partial input (suppose the user has not typed out the full class yet:
+input: "public class Foo { public static    "
+caret:
+  line: 1
+  column: 34
+expected:
+  - int   # expected with context chain: ClassDeclarationContext --parent--> MemberDeclarationContext ...
+  - class # expected with context chain: PrimitiveTypeContext --parent--> TypeContext --parent--> FieldDeclarationContext ...
+# list incomplete, but at least both of the above should be suggested
+
+
+# currently, I get the following instead of the expected tokens and contexts:
+# tokens: @, private, static, protected, public, final, abstract, strictfp
+# context chain: ClassOrInterfaceModifierContext --parent--> ModifierContext --parent--> ...
