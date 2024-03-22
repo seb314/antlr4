@@ -51,7 +51,24 @@ packageDeclaration
 
 importDeclaration
     :   'import' 'static'? qualifiedName ('.' '*')? ';'
+    |   s
     ;
+
+// s : 'special_foo';
+
+s
+  : a
+  | b
+  ;
+
+a : PREFIX path EOF;
+b : PREFIX foo EOF;
+
+path : ('/' PATHPART)+;
+foo : FOO ;
+
+
+
 
 typeDeclaration
     :   classOrInterfaceModifier* classDeclaration
@@ -606,6 +623,10 @@ arguments
     ;
 
 // LEXER
+
+PREFIX : 'myPrefix';
+PATHPART : [0-9a-zA-Z]+?;
+FOO: 'foo';
 
 // §3.9 Keywords
 

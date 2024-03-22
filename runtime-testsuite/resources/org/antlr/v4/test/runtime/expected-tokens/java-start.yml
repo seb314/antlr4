@@ -17,3 +17,4 @@ expected:
   - private
   - EOF
   - strictfp
+  - myPrefix # only for the manipulated grammar

@@ -1,0 +1,13 @@
+#input: "myPrefix       /          "
+#input: "myPrefix       foo        "
+# with only the prefix of the input, we currently get only 'myPrefix' suggested, instead of the three
+# expected tokens. The suggestion is paired with SContext - which seems consistent with the 'myPrefix' suggestion,
+# but not with what I'd expect for correct tokens
+input: "myPrefix          "
+caret:
+  line: 1
+  column: 11
+expected:
+  - EOF
+  - /   # AContext
+  - foo  # BContext
